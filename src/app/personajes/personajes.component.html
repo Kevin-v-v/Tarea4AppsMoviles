@@ -1,7 +1,14 @@
 <ion-button color="secondary" (click)="search()">Buscar</ion-button>
 <ion-spinner  style="width: 5rem; height: 2rem;" *ngIf="processing" name="bubbles"></ion-spinner>
 <div *ngIf="!processing">
-  <h2 *ngIf="notFound">Error, no hay personajes con ese nombre</h2>
+
+  <ion-card color="danger" *ngIf="notFound">
+    <ion-card-header>
+      <ion-card-title> Error, no hay personajes con ese nombre
+      </ion-card-title>
+    </ion-card-header>
+
+      </ion-card>
 
 
 
@@ -14,10 +21,10 @@
   </ion-card>
 <ion-grid>
   <ion-row>
-    <ion-col size=auto *ngFor="let p of generalData.results; index as i">
+    <ion-col size=2.9 *ngFor="let p of generalData.results; index as i">
 
       <ion-card  color="secondary" position="floating" >
-    <img src="{{generalData.results[i].image}}" />
+    <img  src="{{generalData.results[i].image}}" />
     <ion-card-header>
       <ion-card-subtitle>Status: {{generalData.results[i].status}}</ion-card-subtitle>
       <ion-card-title>{{generalData.results[i].name}}</ion-card-title>
