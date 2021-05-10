@@ -26,7 +26,7 @@
       Gender: {{generalData.results[i].gender}}<br />
       Location: {{generalData.results[i].location.name}}<br />
       Origin: {{generalData.results[i].origin.name}}<br />
-      Type: {{generalData.results[i].type}}<br />
+      <div *ngIf="generalData.results[i].type!=''">Type: {{generalData.results[i].type}}<br /></div>
       Species: {{generalData.results[i].species}}<br />
       Creation Date: {{generalData.results[i].created}}<br />
     </ion-card-content>
