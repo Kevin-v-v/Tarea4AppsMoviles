@@ -1,20 +1,27 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+<ion-header [translucent]="true" >
+  <ion-toolbar  color="primary">
+    <ion-title  >
+      Rick and Morty Search Engine
     </ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content color="primary" [fullscreen]="true" >
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Rick and Morty</ion-title>
     </ion-toolbar>
   </ion-header>
+  <img class="ion-text-center"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Rick_and_Morty.svg/1280px-Rick_and_Morty.svg.png">
+  <ion-item>
+    <ion-label position="floating">Ingresa el personaje que buscas</ion-label>
+    <ion-input clear-on-edit="true"  type="string" [(ngModel)]="name"></ion-input>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  </ion-item>
+
+<app-personajes name="{{name}}"></app-personajes>
+
+
 </ion-content>

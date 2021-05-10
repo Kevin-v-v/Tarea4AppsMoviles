@@ -1,0 +1,43 @@
+<ion-button color="secondary" (click)="search()">Buscar</ion-button>
+<ion-spinner  style="width: 5rem; height: 2rem;" *ngIf="processing" name="bubbles"></ion-spinner>
+<div *ngIf="!processing">
+  <h2 *ngIf="notFound">Error, no hay personajes con ese nombre</h2>
+
+
+
+  <ion-card *ngIf="generalData.info.count" color="secondary">
+    <ion-card-header>
+      <ion-card-title>
+      Cantidad de personajes encontrados: {{generalData.info.count}}
+    </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col size=auto *ngFor="let p of generalData.results; index as i">
+
+      <ion-card  color="secondary" position="floating" >
+    <img src="{{generalData.results[i].image}}" />
+    <ion-card-header>
+      <ion-card-subtitle>Status: {{generalData.results[i].status}}</ion-card-subtitle>
+      <ion-card-title>{{generalData.results[i].name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Gender: {{generalData.results[i].gender}}<br />
+      Location: {{generalData.results[i].location.name}}<br />
+      Origin: {{generalData.results[i].origin.name}}<br />
+      Type: {{generalData.results[i].type}}<br />
+      Species: {{generalData.results[i].species}}<br />
+      Creation Date: {{generalData.results[i].created}}<br />
+    </ion-card-content>
+
+  </ion-card>
+</ion-col>
+  </ion-row>
+</ion-grid>
+
+<div style="text-align: right;">
+<ion-button color="secondary" *ngIf="generalData.info.prev" (click)="back()" >Anterior</ion-button>
+<ion-button color="secondary" *ngIf="generalData.info.next" (click)="next()">Siguiente</ion-button>
+</div>
+</div>
